@@ -14,12 +14,11 @@ public class EmployeeWage {
         this.maxHourPerMonth = maxHourPerMonth;
     }
 
-    public static void main(String[] args) {
-        EmployeeWage dMart = new EmployeeWage("dMart", 20, 20, 100);
-
+    public int empWageCompute() {
         int workHour = 0;
+        int totalWorkHour = 0;
         int totalWorkingDays = 0;
-        while (totalWorkingDays < dMart.maxWorkingDays && workHour <= dMart.maxHourPerMonth) {
+        while (totalWorkingDays < maxWorkingDays && workHour <= maxHourPerMonth) {
             totalWorkingDays++;
             int empCheck = (int) (Math.random() * 3);
             switch (empCheck) {
@@ -36,10 +35,16 @@ public class EmployeeWage {
                     workHour = 0;
                     break;
             }
+            totalWorkHour = totalWorkHour + workHour;
             System.out.println("Day#:" + totalWorkingDays + " workHour:" + workHour);
             System.out.println();
         }
-        int totalWage = workHour * dMart.ratePerHour * totalWorkingDays;
-        System.out.println("total emp Wage : " + totalWage);
+        int totalEmpWage = totalWorkHour * ratePerHour * totalWorkingDays;
+        return totalEmpWage;
+    }
+
+    public static void main(String[] args) {
+        EmployeeWage dMart = new EmployeeWage("dMart", 20, 20, 100);
+        System.out.println("Total Wage Emp for " + dMart.company + " is : $" + dMart.empWageCompute());
     }
 }
