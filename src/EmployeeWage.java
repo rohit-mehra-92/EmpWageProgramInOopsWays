@@ -46,5 +46,8 @@ public class EmployeeWage {
     public static void main(String[] args) {
         EmployeeWage dMart = new EmployeeWage("dMart", 20, 20, 100);
         System.out.println("Total Wage Emp for " + dMart.company + " is : $" + dMart.empWageCompute());
+
+        EmployeeWage bigBasket = new EmployeeWage("bigBasket", 10, 25, 130);
+        System.out.println("Total Wage Emp for " + bigBasket.company + " is : $" + bigBasket.empWageCompute());
     }
 }
